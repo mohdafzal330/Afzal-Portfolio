@@ -16,13 +16,13 @@
     <meta name="twitter:title" content="Md Afzal Khan — Senior Software Engineer" />
     <meta name="twitter:description" content="Full stack engineer building scalable, secure, multi-tenant platforms. Ex-Amazon." />
     <meta name="twitter:image" content="https://mdafzalkhan.com/profile.jpg" />
-    <meta name="theme-color" content="#07080d" />
+    <meta name="theme-color" content="#f5f6fb" />
     <script>
-      // Apply the saved (or OS-preferred) theme before first paint to avoid a flash.
+      // Apply the saved theme (light by default) before first paint to avoid a flash.
       (function () {
         var t;
         try { t = localStorage.getItem("theme"); } catch (e) {}
-        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        if (t !== "light" && t !== "dark") t = "light";
         document.documentElement.dataset.theme = t;
       })();
     </script>

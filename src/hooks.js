@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
 const prefersReducedMotion = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const hasFinePointer = () =>
   typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
 
 // Adds `visible` once the element scrolls into view.
-export function useInView({ threshold = 0.12, rootMargin = "0px 0px -40px 0px" } = {}) {
+export function useInView({
+  threshold = 0.12,
+  rootMargin = "0px 0px -40px 0px",
+} = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -18,12 +22,15 @@ export function useInView({ threshold = 0.12, rootMargin = "0px 0px -40px 0px" }
       setInView(true);
       return;
     }
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        io.disconnect();
-      }
-    }, { threshold, rootMargin });
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold, rootMargin },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, [threshold, rootMargin]);
@@ -32,7 +39,10 @@ export function useInView({ threshold = 0.12, rootMargin = "0px 0px -40px 0px" }
 }
 
 // Types and deletes each phrase in turn.
-export function useTyping(phrases, { typeSpeed = 85, deleteSpeed = 40, pause = 1800, startDelay = 2200 } = {}) {
+export function useTyping(
+  phrases,
+  { typeSpeed = 85, deleteSpeed = 40, pause = 1800, startDelay = 2200 } = {},
+) {
   const [text, setText] = useState(phrases[0]);
 
   useEffect(() => {
@@ -106,7 +116,9 @@ export function useTilt(ref, enabled = true) {
       el.style.transitionDelay = "0ms";
       el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
     };
-    const onLeave = () => { el.style.transform = ""; };
+    const onLeave = () => {
+      el.style.transform = "";
+    };
 
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
@@ -119,7 +131,11 @@ export function useTilt(ref, enabled = true) {
 
 // Scroll position helpers for the nav: scrolled flag, progress (0–1) and the active section id.
 export function useScrollSpy(ids, offset = 140) {
-  const [state, setState] = useState({ scrolled: false, progress: 0, active: "" });
+  const [state, setState] = useState({
+    scrolled: false,
+    progress: 0,
+    active: "",
+  });
 
   useEffect(() => {
     const onScroll = () => {
@@ -142,16 +158,24 @@ export function useScrollSpy(ids, offset = 140) {
 
 export { prefersReducedMotion, hasFinePointer };
 
-// Light/dark theme. The initial value is set by the inline script in index.html (saved choice, else OS
-// preference) so the page never flashes the wrong theme; this hook reads it, toggles it and persists it.
+// Light/dark theme. The initial value is set by the inline script in index.html (saved choice, else
+// light) so the page never flashes the wrong theme; this hook reads it, toggles it and persists it.
 export function useTheme() {
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || "dark");
+  const [theme, setTheme] = useState(
+    () => document.documentElement.dataset.theme || "light",
+  );
 
   useEffect(() => {
     const root = document.documentElement;
     root.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f5f6fb" : "#07080d");
-    try { localStorage.setItem("theme", theme); } catch { /* storage unavailable */ }
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "light" ? "#f5f6fb" : "#07080d");
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      /* storage unavailable */
+    }
   }, [theme]);
 
   const toggle = () => {
