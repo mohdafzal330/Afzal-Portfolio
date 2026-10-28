@@ -141,3 +141,27 @@ export function useScrollSpy(ids, offset = 140) {
 }
 
 export { prefersReducedMotion, hasFinePointer };
+
+// Light/dark theme. The initial value is set by the inline script in index.html (saved choice, else OS
+// preference) so the page never flashes the wrong theme; this hook reads it, toggles it and persists it.
+export function useTheme() {
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || "dark");
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f5f6fb" : "#07080d");
+    try { localStorage.setItem("theme", theme); } catch { /* storage unavailable */ }
+  }, [theme]);
+
+  const toggle = () => {
+    const root = document.documentElement;
+    if (!prefersReducedMotion()) {
+      root.classList.add("theme-switching");
+      setTimeout(() => root.classList.remove("theme-switching"), 450);
+    }
+    setTheme((t) => (t === "light" ? "dark" : "light"));
+  };
+
+  return [theme, toggle];
+}
