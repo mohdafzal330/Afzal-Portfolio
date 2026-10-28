@@ -24,7 +24,7 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact">
       <Reveal className="contact-card">
-        <span className="eyebrow">06 · Contact</span>
+        <span className="eyebrow">07 · Contact</span>
         <h2>Let's build something <span className="grad">great</span> together.</h2>
         <p>Whether it's a role, a collaboration, or just a chat about system design, my inbox is open.</p>
         <div className="contact-actions">

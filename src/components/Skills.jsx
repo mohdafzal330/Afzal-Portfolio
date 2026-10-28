@@ -16,8 +16,8 @@ export default function Skills() {
       </div>
 
       <div className="skill-grid">
-        {skillGroups.map(({ icon, title, items }, i) => (
-          <Reveal key={title} className="skill-card" delay={(i % 3) * 70}>
+        {skillGroups.map(({ icon, title, items, wide }, i) => (
+          <Reveal key={title} className={`skill-card${wide ? " wide" : ""}`} delay={(i % 3) * 70}>
             <h4><span className="ico">{icon}</span> {title}</h4>
             <Chips items={items} />
           </Reveal>

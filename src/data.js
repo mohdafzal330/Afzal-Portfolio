@@ -119,6 +119,21 @@ export const experience = [
     ],
     tech: ["ASP.NET MVC", "C#", "SQL Server", "SFTP", "HIPAA"],
   },
+  {
+    role: "Full Stack Developer — Intern",
+    company: "Legal Desire Media & Publications",
+    period: "Mar 2017 — Sep 2017",
+    location: "6 months",
+    summary: "Ed‑tech platform for legal courses and publications.",
+    points: [
+      "Designed and developed a **distributed ed‑tech platform** from scratch, with **Elasticsearch**‑powered course search.",
+      "Built the **admin and user modules** from the ground up — course management, enrollments and user profiles.",
+      "Implemented **role‑based authentication and authorization** for students, instructors, admins and other stakeholders.",
+      "Added **debouncing** and autocomplete to course search, cutting redundant queries on every keystroke.",
+      "Exposed course, user and enrollment data through **REST APIs** consumed by a responsive web front end.",
+    ],
+    tech: ["Elasticsearch", "REST APIs", "RBAC", "JavaScript", "SQL"],
+  },
 ];
 
 export const featuredProject = {
@@ -184,16 +199,32 @@ export const projects = [
 
 export const marquee = [
   "React", ".NET Core", "TypeScript", "Node.js", "AWS", "Azure", "NestJS", "Angular",
-  "C#", "Java", "MongoDB", "SQL Server", "Agentic AI", "RAG", "Claude",
+  "C#", "Java", "MongoDB", "SQL Server", "System Design", "Distributed Systems", "Agentic AI", "RAG", "Embeddings", "Claude",
 ];
 
+// `wide` cards span two columns; order matters so rows fill evenly in the 3-column grid.
 export const skillGroups = [
+  { icon: "⬡", title: "System Design", wide: true, items: ["Distributed Systems", "Scalability", "High‑Concurrency Systems", "Resilient Systems", "Microservices", "Caching", "Load Balancing", "Event‑Driven Architecture"] },
   { icon: "◧", title: "Frontend", items: ["React JS", "Angular", "React Native", "TypeScript", "JavaScript", "Micro‑frontends"] },
   { icon: "⚙", title: "Backend", items: [".NET Core", "C#", "ASP.NET MVC", "Node JS", "Express JS", "NestJS", "Java", "REST APIs", "LINQ"] },
   { icon: "☁", title: "Cloud & DevOps", items: ["AWS", "S3", "DynamoDB", "Azure", "Git", "Liquibase", "Snyk"] },
   { icon: "▤", title: "Data", items: ["SQL Server", "MongoDB", "DynamoDB", "Stored Procedures", "Schema Design"] },
-  { icon: "✦", title: "AI", items: ["Gen‑AI", "Agentic AI", "RAG Systems", "Claude", "Native AI"] },
-  { icon: "◎", title: "Craft", items: ["Data Structures", "System Design", "ADRs", "RBAC", "Mentoring", "Interviewing"] },
+  { icon: "✦", title: "AI Engineering", wide: true, items: ["AI‑Native Software Engineering", "Gen‑AI", "Agentic AI", "RAG", "RAG Pipelines", "Embeddings", "Vector Search", "Token Optimization", "Prompt Engineering", "Claude"] },
+  { icon: "◎", title: "Craft", items: ["Data Structures", "Algorithms", "ADRs", "RBAC", "Mentoring", "Interviewing"] },
+];
+
+export const certifications = [
+  {
+    title: "Grokking Modern System Design Interview",
+    issuer: "Educative",
+    issued: "Oct 2026",
+    duration: "26 hours",
+    credentialId: "PLQKWEDPG1",
+    image: "certificates/educative-system-design.png",
+    summary:
+      "Designing large‑scale distributed systems end to end — from requirements and back‑of‑the‑envelope estimates to building blocks like load balancers, caches, queues, sharded databases and CDNs.",
+    topics: ["Distributed Systems", "Scalability", "High Concurrency", "Resilience", "Caching", "Sharding"],
+  },
 ];
 
 export const achievements = [
@@ -201,23 +232,30 @@ export const achievements = [
   { icon: "🏆", title: "1st Runner‑Up", text: "Coding competition at EXORDIUM Fest, on campus." },
   { icon: "◈", title: "Rank 9, Codernity", text: "Codernity Programming Contest at Internity." },
   { icon: "⛨", title: "Security recognition", text: "Recognized at Lyric for finding and fixing vulnerabilities across services." },
+  { icon: "⚑", title: "Rank 1051, 101 Hacks 52", text: "HackerRank algorithmic contest (2017) — 5 problems in 3 hours. Username: mohdafzal330." },
+  { icon: "✓", title: "NPTEL qualified", text: "National Programming Aptitude Test by NPTEL (National Programme on Technology Enhanced Learning), Aug 2017." },
 ];
 
 export const education = {
   degree: "Bachelor of Technology",
   school: "MJP Rohilkhand University · 2015 — 2019",
+  grade: "8.0 GPA",
 };
 
 export const languages = [
   { name: "English", level: 80 },
   { name: "Hindi", level: 100 },
   { name: "Urdu", level: 80 },
+  { name: "Arabic", level: 60 },
 ];
+
+export const interests = ["Artificial Intelligence", "LLMs & Agentic Systems", "Problem Solving", "Competitive Programming", "System Design"];
 
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "#certifications", label: "Certifications" },
   { href: "#achievements", label: "Achievements" },
 ];

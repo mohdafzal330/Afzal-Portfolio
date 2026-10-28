@@ -1,14 +1,15 @@
-import { achievements, education, languages } from "../data";
+import { achievements, education, interests, languages } from "../data";
+import Chips from "./Chips";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
 
 export default function Achievements() {
   return (
     <section className="section" id="achievements">
-      <SectionHead eyebrow="05 · Highlights" title={["Achievements & ", "background", "."]} />
+      <SectionHead eyebrow="06 · Highlights" title={["Achievements & ", "background", "."]} />
       <div className="ach-grid">
         {achievements.map(({ icon, title, text }, i) => (
-          <Reveal key={title} className="ach" tilt delay={i * 70}>
+          <Reveal key={title} className="ach" tilt delay={(i % 3) * 70}>
             <div className="ach-ico">{icon}</div>
             <h4>{title}</h4>
             <p>{text}</p>
@@ -21,6 +22,7 @@ export default function Achievements() {
               <span className="eyebrow small">Education</span>
               <h4>{education.degree}</h4>
               <p>{education.school}</p>
+              <span className="grade">{education.grade}</span>
             </div>
             <div>
               <span className="eyebrow small">Languages</span>
@@ -32,6 +34,10 @@ export default function Achievements() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div>
+              <span className="eyebrow small">Interests</span>
+              <Chips items={interests} />
             </div>
           </div>
         </Reveal>
