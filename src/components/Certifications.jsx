@@ -28,21 +28,23 @@ export default function Certifications() {
 
   return (
     <section className="section" id="certifications">
-      <SectionHead eyebrow="05 · Certifications" title={["Certified in ", "system design", "."]} />
+      <SectionHead eyebrow="05 · Certifications" title={["Certified & ", "trained", "."]} />
       {certifications.map((cert) => (
-        <Reveal as="article" key={cert.credentialId} className="cert">
+        <Reveal as="article" key={cert.title} className={`cert${cert.portrait ? " portrait" : ""}`}>
           <button className="cert-image" onClick={() => setOpen(cert)} aria-label="View full certificate">
             <img src={cert.image} alt={`${cert.issuer} certificate: ${cert.title}`} loading="lazy" />
             <span className="cert-zoom">View certificate ⤢</span>
           </button>
           <div className="cert-body">
-            <span className="cert-issuer"><span className="cert-logo">&gt;_</span> {cert.issuer} · Certified</span>
+            <span className="cert-issuer">
+              <span className="cert-logo" style={{ background: cert.logo.color }}>{cert.logo.text}</span> {cert.issuer} · Certified
+            </span>
             <h3>{cert.title}</h3>
             <p>{cert.summary}</p>
             <dl className="cert-meta">
               <div><dt>Issued</dt><dd>{cert.issued}</dd></div>
               <div><dt>Duration</dt><dd>{cert.duration}</dd></div>
-              <div><dt>Credential ID</dt><dd>{cert.credentialId}</dd></div>
+              {cert.credentialId && <div><dt>Credential ID</dt><dd>{cert.credentialId}</dd></div>}
             </dl>
             <Chips items={cert.topics} />
           </div>

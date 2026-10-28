@@ -1,11 +1,13 @@
 import { heroChips, profile, typedPhrases } from "../data";
 import { useTyping } from "../hooks";
 import Reveal from "./Reveal";
-import { GitHubIcon, GlobeIcon, LinkedInIcon, MailIcon } from "./Icons";
+import { CodeforcesIcon, GitHubIcon, GlobeIcon, LeetCodeIcon, LinkedInIcon, MailIcon } from "./Icons";
 
 const socials = [
   { href: profile.github, label: "GitHub", Icon: GitHubIcon, external: true },
   { href: profile.linkedin, label: "LinkedIn", Icon: LinkedInIcon, external: true },
+  { href: profile.leetcode, label: "LeetCode", Icon: LeetCodeIcon, external: true },
+  { href: profile.codeforces, label: "Codeforces", Icon: CodeforcesIcon, external: true },
   { href: `mailto:${profile.email}`, label: "Email", Icon: MailIcon },
   { href: profile.website, label: "Crafter Hack", Icon: GlobeIcon, external: true },
 ];
@@ -44,7 +46,7 @@ export default function Hero() {
         </Reveal>
         <Reveal className="socials" delay={280}>
           {socials.map(({ href, label, Icon, external }) => (
-            <a key={label} href={href} aria-label={label} {...(external && { target: "_blank", rel: "noopener" })}>
+            <a key={label} href={href} aria-label={label} data-tooltip={label} {...(external && { target: "_blank", rel: "noopener" })}>
               <Icon />
             </a>
           ))}

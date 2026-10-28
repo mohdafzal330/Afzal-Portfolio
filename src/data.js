@@ -7,6 +7,8 @@ export const profile = {
   whatsapp: "https://wa.me/919842139786?text=" + encodeURIComponent("Hi Afzal, I came across your portfolio and would love to connect!"),
   github: "https://github.com/mohdafzal330",
   linkedin: "https://linkedin.com/in/mohammed-afzal-khan",
+  leetcode: "https://leetcode.com/u/mohdafzal330/",
+  codeforces: "https://codeforces.com/profile/mohdafzal330",
   website: "https://crafterhack.com/",
   resume: "Md_Afzal_Khan_Resume.pdf",
   photo: "profile.jpg",
@@ -224,11 +226,32 @@ export const certifications = [
     summary:
       "Designing large‑scale distributed systems end to end — from requirements and back‑of‑the‑envelope estimates to building blocks like load balancers, caches, queues, sharded databases and CDNs.",
     topics: ["Distributed Systems", "Scalability", "High Concurrency", "Resilience", "Caching", "Sharding"],
+    logo: { text: ">_", color: "#5553ff" },
+  },
+  {
+    title: "Data Structures, Algorithms & Web Development",
+    issuer: "Pepcoding",
+    issued: "Mar 2022",
+    duration: "6 months · Sep 2021 — Mar 2022",
+    image: "certificates/pepcoding-dsa.png",
+    portrait: true,
+    summary:
+      "Six months of intensive training in data structures, algorithms and full‑stack web development, which built the foundation behind my 700+ solved problems on NADOS and LeetCode.",
+    topics: ["Data Structures", "Algorithms", "Problem Solving", "Web Development"],
+    logo: { text: "P", color: "#c62828" },
   },
 ];
 
 export const achievements = [
-  { icon: "★", title: "700+ problems solved", text: "On LeetCode and NADOS, with a consistent focus on algorithms and data structures." },
+  {
+    icon: "★",
+    title: "700+ problems solved",
+    text: "On LeetCode and NADOS, with a consistent focus on algorithms and data structures.",
+    links: [
+      { label: "LeetCode", href: "https://leetcode.com/u/mohdafzal330/" },
+      { label: "Codeforces", href: "https://codeforces.com/profile/mohdafzal330" },
+    ],
+  },
   { icon: "🏆", title: "1st Runner‑Up", text: "Coding competition at EXORDIUM Fest, on campus." },
   { icon: "◈", title: "Rank 9, Codernity", text: "Codernity Programming Contest at Internity." },
   { icon: "⛨", title: "Security recognition", text: "Recognized at Lyric for finding and fixing vulnerabilities across services." },
@@ -238,7 +261,9 @@ export const achievements = [
 
 export const education = {
   degree: "Bachelor of Technology",
-  school: "MJP Rohilkhand University · 2015 — 2019",
+  school: "MJP Rohilkhand University",
+  schoolUrl: "http://mjpru.ac.in/",
+  years: "2015 — 2019",
   grade: "8.0 GPA",
 };
 

@@ -8,11 +8,18 @@ export default function Achievements() {
     <section className="section" id="achievements">
       <SectionHead eyebrow="06 · Highlights" title={["Achievements & ", "background", "."]} />
       <div className="ach-grid">
-        {achievements.map(({ icon, title, text }, i) => (
+        {achievements.map(({ icon, title, text, links }, i) => (
           <Reveal key={title} className="ach" tilt delay={(i % 3) * 70}>
             <div className="ach-ico">{icon}</div>
             <h4>{title}</h4>
             <p>{text}</p>
+            {links && (
+              <div className="ach-links">
+                {links.map(({ label, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener">{label} ↗</a>
+                ))}
+              </div>
+            )}
           </Reveal>
         ))}
 
@@ -21,7 +28,10 @@ export default function Achievements() {
             <div>
               <span className="eyebrow small">Education</span>
               <h4>{education.degree}</h4>
-              <p>{education.school}</p>
+              <p>
+                <a className="school-link" href={education.schoolUrl} target="_blank" rel="noopener">{education.school} ↗</a>
+                {" · "}{education.years}
+              </p>
               <span className="grade">{education.grade}</span>
             </div>
             <div>

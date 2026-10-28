@@ -39,6 +39,8 @@ export default function Contact() {
         <div className="contact-links">
           <a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href={profile.github} target="_blank" rel="noopener">GitHub ↗</a>
+          <a href={profile.leetcode} target="_blank" rel="noopener">LeetCode ↗</a>
+          <a href={profile.codeforces} target="_blank" rel="noopener">Codeforces ↗</a>
           <a href={profile.resume} download>Résumé ↓</a>
         </div>
       </Reveal>
