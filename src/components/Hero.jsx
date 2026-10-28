@@ -18,8 +18,20 @@ export default function Hero() {
       <div className="hero-text">
         <Reveal className="status-pill"><span className="dot" /> {profile.status}</Reveal>
         <Reveal as="h1" delay={70}>
-          Hi, I'm <span className="grad">{profile.name}</span>.<br />
-          I build <span className="typed">{typed}</span><span className="caret">|</span>
+          Hi, I'm <span className="grad">{profile.name}</span>.
+          <span className="build-line">
+          I build{" "}
+          {/* Every phrase is rendered invisibly in the same grid cell, so the box is always sized to the
+              widest one and typing never reflows the hero. */}
+          <span className="typed-wrap">
+            {typedPhrases.map((p) => (
+              <span key={p} className="typed-sizer" aria-hidden="true">{p}|</span>
+            ))}
+            <span className="typed-live">
+              <span className="typed">{typed}</span><span className="caret">|</span>
+            </span>
+          </span>
+          </span>
         </Reveal>
         <Reveal as="p" className="lead" delay={140}>
           Full stack engineer with <strong>7+ years</strong> shipping cross‑platform products at{" "}
